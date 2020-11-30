@@ -10,7 +10,9 @@ import string
 
 # pictureUrlExecutor = ThreadPoolExecutor(max_workers=5)
 loadExecutor = ThreadPoolExecutor(max_workers=25)
-localPath = 'D:\\MyDrivers\\update\\photo'
+localPath = 'D:\\MyDrivers\\update\\photo3'
+# localPath = 'D:\\MyDrivers\\update\\oumei'
+# localPath = 'F:\\002Cache\\tmp\\photo\\jingpin'
 
 def loadPicture(url,localPath,filename,pictureIndex,reLoadTime):
     if reLoadTime > 5:
@@ -111,10 +113,10 @@ def parseUrl(url,tag):
 
 
 def main():
-    preUrl = 'http://www.9900rt.org/html/yazhou/'
-    website = 'http://www.9900rt.org/'
+    preUrl = 'http://www.gg99rt.info/html/yazhou/'
+    website = 'http://www.gg99rt.info/'
 
-    for i in range(40,188):
+    for i in range(2,3):
         url = ''
         if i == 1:
             url = preUrl
@@ -130,20 +132,27 @@ def main():
             print("(%d,%d)"%(i,count))
             indexPagePictureUrl = website + indexPagePictureUrl
             # 判断是否包含指定的标签
-            isContainTag = containTag(indexPagePictureUrl,'日本')
-            if not isContainTag:
-                print('\t(%d,%d)爬取图片链接：%s'%(i,count,indexPagePictureUrl))
-                crawPictureUrl(indexPagePictureUrl,(i,count))
+            # isContainTag = containTag(indexPagePictureUrl,'日本')
+            # if not isContainTag:
+            print('\t(%d,%d)爬取图片链接：%s'%(i,count,indexPagePictureUrl))
+            crawPictureUrl(indexPagePictureUrl,(i,count))
 
 def main2():
     urls = [
-        'http://www.9900rt.info/html/yazhou/2016/0805/4355.html',
-        'http://www.9900rt.info/html/yazhou/2017/0921/5913.html',
-        'http://www.9900rt.info/html/yazhou/2017/1015/5997.html'
+        'http://www.9grt.org/html/yazhou/9899.html',
+        'http://www.9grt.org/html/yazhou/9898.html',
+        'http://www.9grt.org/html/yazhou/9897.html',
+        'http://www.9grt.org/html/yazhou/9892.html',
+        'http://www.9grt.org/html/yazhou/9891.html'
+
     ]
 
     for url in urls:
         crawPictureUrl(url, (0, 0))
 
+
 if __name__ == '__main__':
-    main()
+    main2()
+    # main()
+
+
